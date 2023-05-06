@@ -17,8 +17,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 const keyStates = { up: false, down: false, left: false, right: false };
 const room_x = 7.7;
 const room_z = 7.8;
-const cam1_y = 6; //ceiling camera
-const cam2_y = 8; //fixed camera, use orbitcontrols
+const cam1_y = 4; //ceiling camera
+const cam2_y = 5; //fixed camera, use orbitcontrols
 const wall_y = 2.5;
 
 
