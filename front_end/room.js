@@ -338,6 +338,24 @@ function main() {
                 break; 
         }
     }
+
+    // Generate a random curve
+    const curve = new THREE.SplineCurve( [
+        new THREE.Vector2(1, 1),
+        new THREE.Vector2(-1, -1),
+    ] );
+
+    const points = curve.getPoints(50); // divide curve into 50 pieces
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const material = new THREE.LineBasicMaterial( { color : 0xff0000 } ); // draw the curve
+    const splineObject = new THREE.Line(geometry, material);
+    splineObject.rotation.x = Math.PI * .5;
+    splineObject.position.y = 0.05;
+    scene.add(splineObject);
+
+    const agentPlainPosition = new THREE.Vector2();
+    // the agent doesn't need TargetPosition since it's symmetric
+
     // RENDERER......
     
     function resizeRendererToDisplaySize(renderer) {
@@ -355,6 +373,11 @@ function main() {
 
         cylinderAnimate();
 
+        // get current time in second
+        const d = new Date();
+        let time = d.getTime(); // miliseconds
+        time = time * 0.001;
+
         if (resizeRendererToDisplaySize(renderer)){
             const canvas = renderer.domElement;
             camera1.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -362,29 +385,37 @@ function main() {
             camera2.aspect = canvas.clientWidth / canvas.clientHeight;
             camera2.updateProjectionMatrix();
         }
-        // Update agent position based on key state
-        const speed = 0.03;
-        if (keyStates.up) {
-            agentPosition.x += speed;
-        }
-        if (keyStates.down) {
-            agentPosition.x -= speed;
-        }
-        if (keyStates.left) {
-            agentPosition.z -= speed;
-        }
-        if (keyStates.right) {
-            agentPosition.z += speed;
-        }
 
-        //Clamp agent position to room boundaries
-        const halfWidth = room_x / 2;
-        const halfDepth = room_z / 2;
-        agentPosition.x = THREE.MathUtils.clamp(agentPosition.x, -halfWidth, halfWidth);
-        agentPosition.z = THREE.MathUtils.clamp(agentPosition.z, -halfDepth, halfDepth);
+        // move agent
+        const agentTime = time * 0.05;  // 0.05 is velocity
+        curve.getPointAt(agentTime % 1, agentPlainPosition);
+        agent.position.set(agentPlainPosition.x, 0, agentPlainPosition.y);  // update position
 
-        // Update agent position
-        agent.position.copy(agentPosition);
+        // comment the code below temporarily
+
+        // // Update agent position based on key state
+        // const speed = 0.03;
+        // if (keyStates.up) {
+        //     agentPosition.x += speed;
+        // }
+        // if (keyStates.down) {
+        //     agentPosition.x -= speed;
+        // }
+        // if (keyStates.left) {
+        //     agentPosition.z -= speed;
+        // }
+        // if (keyStates.right) {
+        //     agentPosition.z += speed;
+        // }
+
+        // //Clamp agent position to room boundaries
+        // const halfWidth = room_x / 2;
+        // const halfDepth = room_z / 2;
+        // agentPosition.x = THREE.MathUtils.clamp(agentPosition.x, -halfWidth, halfWidth);
+        // agentPosition.z = THREE.MathUtils.clamp(agentPosition.z, -halfDepth, halfDepth);
+
+        // // Update agent position
+        // agent.position.copy(agentPosition);
 
         // Render scene
         //renderer.clippingPlanes = clipplanes_wifi1.concat(clipplanes_wifi2, clipplanes_wifi3);
