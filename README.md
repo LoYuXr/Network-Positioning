@@ -106,7 +106,7 @@ $$d=10^{\frac{abs(rssi)-A}{10*n}}$$
 
 $$\begin{cases}(x-x_0)^2 + (y-y_0)^2 = d_0^2 &(1)\\ (x-x_1)^2 + (y-y_1)^2 = d_1^2 &(2)\\ (x-x_2)^2 + (y-y_2)^2 = d_2^2 &(3)\end{cases}$$
 
- $(2)-(1), (3)-(2)$ 后写成矩阵形式： $AX=B.$ 其中: $ X = \begin{bmatrix} x \\ y \end{bmatrix}, A = \begin{bmatrix} 2(x_1-x_0) & 2(y_1-y_0) \\ 2(x_2-x_1) & 2(y_2-y_1) \end{bmatrix}, B = \begin{bmatrix} d_0^2 - d_1^2 - x_0^2 - y_0^2 + x_1^2 + y_1^2 \\ d_1^2 - d_2^2 - x_1^2 - y_1^2 + x_2^2 + y_2^2 \end{bmatrix}. $ 
+ $(2)-(1), (3)-(2)$ 后写成矩阵形式： $AX=B.$ 其中: $ X = {\left\lbrack \matrix{x \cr y} \right\rbrack}, $ $ A = \begin{bmatrix} 2(x_1-x_0) & 2(y_1-y_0) \\ 2(x_2-x_1) & 2(y_2-y_1) \end{bmatrix}, B = \begin{bmatrix} d_0^2 - d_1^2 - x_0^2 - y_0^2 + x_1^2 + y_1^2 \\ d_1^2 - d_2^2 - x_1^2 - y_1^2 + x_2^2 + y_2^2 \end{bmatrix}. $ 
 
 由于测量误差，使用最小二乘法最小化误差 $||AX-B||^2$ ，求导后设导数为0得到 $X=(A^TA)^{-1}A^TB$ ，为该时刻手机坐标。如此得到各个时刻的手机坐标。
 
