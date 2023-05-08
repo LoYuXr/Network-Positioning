@@ -7,7 +7,7 @@
 
     <title>无线定位感知-第6组</title>
 
-<link href="{{ url_for('static', filename='assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -107,140 +107,116 @@
 
 
     
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">无线定位感知</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search" value="第6组">
-</header>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">无线定位感知</a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search" value="第6组">
+    </header>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
-      <div class="position-sticky pt-3 sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link {{ 'active' if url=='/' }}" aria-current="page" href="/">
-              <span data-feather="layers" class="align-text-bottom"></span>
-              历史轨迹查询
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ 'active' if url=='/realtime' }}" href="/realtime">
-              <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-              实时坐标展示
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="more-horizontal" class="align-text-bottom"></span>
-              敬请期待
-            </a>
-          </li>
-        </ul>
-          <br>
-          <br>
-            <br>
-          <br>
-            <br>
-            <br>
-            <br>
-          <br>
-          <br>
-            <br>
-          <br>
-            <br>
-            <br>
-            <br>
-          <br>
-          <br>
-          <br>
-            <br>
-            <br>
-          <br>
-          <br>
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
+          <div class="position-sticky pt-3 sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link {{ 'active' if url=='/' }}" aria-current="page" href="/">
+                  <span data-feather="layers" class="align-text-bottom"></span>
+                  历史轨迹查询
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ 'active' if url=='/realtime' }}" href="/realtime">
+                  <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+                  实时坐标展示
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="more-horizontal" class="align-text-bottom"></span>
+                  敬请期待
+                </a>
+              </li>
+            </ul>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-    <hr>
-    <div class="dropdown m-3" >
-      <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="{{ url_for('static', filename='assets/images.png') }}" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>魏鑫 罗宇轩 杨昊翔 梁博强</strong>
-      </a>
-      <ul class="dropdown-menu text-small shadow">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
-      </div>
-
-    </nav>
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">{{ '历史轨迹查询' if url=='/' else '实时坐标展示' }}</h1>
-        <div class="btn-toolbar mb-2 mb-md-0" >
-        {% if url =='/' %}
-            <div class="btn-group me-2" role="group" id="group-algo" onchange="trigger()">
-
-              <input type="radio" class="btn-check" name="grp-algo" id="btn-lsm" autocomplete="off" value="lsm">
-              <label class="btn btn-outline-secondary" for="btn-lsm">LSM</label>
-
-              <input type="radio" class="btn-check" name="grp-algo" id="btn-cm" autocomplete="off" value="cm" checked>
-              <label class="btn btn-outline-secondary" for="btn-cm">CM</label>
+            <hr>
+            <div class="dropdown m-3" >
+              <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{ url_for('static', filename='assets/images.png') }}" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>魏鑫 罗宇轩 杨昊翔 梁博强</strong>
+              </a>
+              <ul class="dropdown-menu text-small shadow">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
             </div>
-
-            <div class="btn-group me-2" role="group" id="group-flat" onchange="trigger()">
-              <input type="radio" class="btn-check" name="grp-flat" id="btn-raw" autocomplete="off" value="raw" checked>
-              <label class="btn btn-outline-secondary" for="btn-raw">原始坐标</label>
-
-              <input type="radio" class="btn-check" name="grp-flat" id="btn-ma" autocomplete="off" value="ma">
-              <label class="btn btn-outline-secondary" for="btn-ma">滑动平均</label>
-
-              <input type="radio" class="btn-check" name="grp-flat" id="btn-iter" autocomplete="off" value="iter">
-              <label class="btn btn-outline-secondary" for="btn-iter">迭代平滑</label>
-
-            </div>
-
-            {% endif %}
-
-          <div class="dropdown">
-              <button type="button" class="btn btn-me btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                <span data-feather="compass" class="align-text-bottom"></span>
-                 {{  '2023-05-01 18:26:08' if url=='/' else 'd8:ce:3a:fa:9d:03' }}
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#"> {{  '2023-05-01 18:26:08' if url=='/' else 'd8:ce:3a:fa:9d:03' }} </a>
-              </div>
           </div>
+        </nav>
 
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">{{ '历史轨迹查询' if url=='/' else '实时坐标展示' }}</h1>
+            <div class="btn-toolbar mb-2 mb-md-0" >
+            {% if url =='/' %}
+                <div class="btn-group me-2" role="group" id="group-algo" onchange="trigger()">
 
+                  <input type="radio" class="btn-check" name="grp-algo" id="btn-lsm" autocomplete="off" value="lsm">
+                  <label class="btn btn-outline-secondary" for="btn-lsm">LSM</label>
 
+                  <input type="radio" class="btn-check" name="grp-algo" id="btn-cm" autocomplete="off" value="cm" checked>
+                  <label class="btn btn-outline-secondary" for="btn-cm">CM</label>
+                </div>
 
-        </div>
+                <div class="btn-group me-2" role="group" id="group-flat" onchange="trigger()">
+                  <input type="radio" class="btn-check" name="grp-flat" id="btn-raw" autocomplete="off" value="raw" checked>
+                  <label class="btn btn-outline-secondary" for="btn-raw">原始坐标</label>
+
+                  <input type="radio" class="btn-check" name="grp-flat" id="btn-ma" autocomplete="off" value="ma">
+                  <label class="btn btn-outline-secondary" for="btn-ma">滑动平均</label>
+
+                  <input type="radio" class="btn-check" name="grp-flat" id="btn-iter" autocomplete="off" value="iter">
+                  <label class="btn btn-outline-secondary" for="btn-iter">迭代平滑</label>
+
+                </div>
+
+                {% endif %}
+
+              <div class="dropdown">
+                <button type="button" class="btn btn-me btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                  <span data-feather="compass" class="align-text-bottom"></span>
+                  {{  '2023-05-01 18:26:08' if url=='/' else 'd8:ce:3a:fa:9d:03' }}
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#"> {{  '2023-05-01 18:26:08' if url=='/' else 'd8:ce:3a:fa:9d:03' }} </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <canvas id="c" width="1200" height="550" ></canvas>
+        </main>
       </div>
-        <br>
-      <canvas id="c" width="1200" height="550" ></canvas>
-    </main>
-  </div>
-</div>
+    </div>
 
 
 
-    <script src="{{ url_for('static', filename='assets/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script>        let loc = {{ loc }};
-        document.addEventListener("DOMContentLoaded", function(){
-            draw(loc);
-        });
-        document.getElementById("c").addEventListener("load", function(){
-            draw(loc);
-        });</script>
-    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/main.js') }}"></script>
+<script>        
+    let loc = {{ loc }};
+    document.addEventListener("DOMContentLoaded", function(){
+        draw(loc);
+    });
+    document.getElementById("c").addEventListener("load", function(){
+        draw(loc);
+    });</script>
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
       function trigger() {
           $.ajax({

@@ -9,6 +9,36 @@
 
 ----------
 
+# 如何运行本项目
+
+0. 在 [`config.json`](./config.json) 中填入您的数据库配置
+
+1. 安装所有包依赖
+
+   ```shell
+   pip install -r requirements.txt
+   ```
+
+2. 运行 [`preprocessing.ipynb`](./preprocessing.ipynb) 将测试数据导入数据库
+
+3. 使用 npm 安装包并且构建出运行时 javascript
+
+   ``` shell
+   cd static
+   npm install
+   npx webpack build
+   ```
+
+4. 运行 Flask 服务器
+
+   ```shell
+   cd ..
+   flask run
+   ```
+
+5. 打开 http://127.0.0.1:5000/ 以查看
+
+
 
 # 搭建服务器和MySQL数据库
 
@@ -107,7 +137,7 @@ $$d=10^{\frac{abs(rssi)-A}{10*n}}$$
 $$\begin{cases}(x-x_0)^2 + (y-y_0)^2 = d_0^2 &(1)\\ (x-x_1)^2 + (y-y_1)^2 = d_1^2 &(2)\\ (x-x_2)^2 + (y-y_2)^2 = d_2^2 &(3)\end{cases}$$
 
  $(2)-(1), (3)-(2)$ 后写成矩阵形式： $AX=B.$ 其中:
- 
+
 ```math
 X = \begin{bmatrix} x \\ y \end{bmatrix}, A = \begin{bmatrix} 2(x_1-x_0) & 2(y_1-y_0) \\ 2(x_2-x_1) & 2(y_2-y_1) \end{bmatrix}, B = \begin{bmatrix} d_0^2 - d_1^2 - x_0^2 - y_0^2 + x_1^2 + y_1^2 \\ d_1^2 - d_2^2 - x_1^2 - y_1^2 + x_2^2 + y_2^2 \end{bmatrix}.
 ```
@@ -170,7 +200,7 @@ $$\vec{OI}=\vec{OA}+\frac{d_A}{d_A+d_C}\vec{AC}$$.
 
 ## 室内场景建模
 
-我组利用three.js对环境场景进行建模。我们可视化了房间、嗅探器与人物，其中嗅探器使用橙色扩散曲线表示，人物简化为“跳棋”形态，可以在房间内自由移动。效果如下图：
+我组利用three.js对环境场景进行建模。我们可视化了房间、嗅探器与人物，其中嗅探器使用橙色扩散曲线表示，人物简化为“跳棋”形态，可以在房间内自由移动。具体的三维设计请参考 [`./static/room.js`](./static/room.js) 效果如下图：
 
 同时我们使用Bootstrap框架完善了HTML的网页端界面。它是一个交互式界面，支持多种定制化功能，便于不同算法间动态效果的比较。它是一个用于快速开发 Web 应用程序和网站的前端框架。它基于 HTML、CSS 和JavaScript，提供了一站式解决方案，集成了响应式布局、移动设备优先等特性。
 Bootstrap 提供了大量的可重用组件，包括图像、下拉菜单、导航、警告框、弹出框等等。Bootstrap 是一个简洁统一的解决方案，易于定制和使用。基于此，我们实现的可选功能有：实时坐标查询与历史轨迹查询。在历史轨迹查询中，我们支持对已实现的两种方法与两种后处理优化算法的结果展示。详见“结果展示”部分

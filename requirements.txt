@@ -1,0 +1,7 @@
+Flask==1.1.2
+PyMySQL==1.0.2
+SQLAlchemy==1.4.32
+matplotlib==3.5.1
+numpy==1.23.5
+pandas==1.5.3
+scipy==1.9.3
