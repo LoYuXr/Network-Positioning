@@ -126,16 +126,21 @@ $$\vec{OI}=\vec{OA}+\frac{d_A}{d_A+d_C}\vec{AC}$$.
 ## 后处理
 
 对于计算得到的轨迹，分别使用两种后处理方式。我们将于如下详细介绍。
-**三点平均平滑算法**
+
+## 三点平均平滑算法
+
 我们首先选择如下平滑算法：对于相邻$$n = 3$$个点，我们计算其平均值，得到平滑后的坐标点。其优点是简便易行，其缺点是会使最终可视化的点数变少，同时改变轨迹首尾点。
 
 对于该方法，我们的可视化结果如下：
 
-https://www.dropbox.com/s/4z0b1iuew5m4jyg/Trajectory_LSM%2Bavg.eps?dl=0
+**最小二乘法**
 
-https://www.dropbox.com/s/0h4t4kjafcyadv5/Trajectory_CM%2Bavg.eps?dl=0
+![](https://paper-attachments.dropboxusercontent.com/s_6A99C2AB3C3698DDCB38A1BA57C2DDF8D0A1E6E7909D9485C9596B1C23AACE6F_1683544546473_LSM-avg.png)
 
 
+**三角形质心法**
+
+![](https://paper-attachments.dropboxusercontent.com/s_6A99C2AB3C3698DDCB38A1BA57C2DDF8D0A1E6E7909D9485C9596B1C23AACE6F_1683544555356_CM-avg.png)
 
 ## 迭代平滑算法
 
@@ -145,9 +150,14 @@ https://www.dropbox.com/s/0h4t4kjafcyadv5/Trajectory_CM%2Bavg.eps?dl=0
 
 对于该方法，我们的可视化结果如下：
 
-https://www.dropbox.com/s/goqpcik3s1m5cks/Trajectory_LSM%2Biter.eps?dl=0
+**最小二乘法**
 
-https://www.dropbox.com/s/bxh4icoy5yrmhd7/Trajectory_CM%2Biter.eps?dl=0
+![](https://paper-attachments.dropboxusercontent.com/s_6A99C2AB3C3698DDCB38A1BA57C2DDF8D0A1E6E7909D9485C9596B1C23AACE6F_1683544381785_LSM-iter.png)
+
+
+**三角形质心法**
+
+![](https://paper-attachments.dropboxusercontent.com/s_6A99C2AB3C3698DDCB38A1BA57C2DDF8D0A1E6E7909D9485C9596B1C23AACE6F_1683544417044_CM-iter.png)
 
 
 根据室内场景以及运动轨迹的情况，我们利用JavaScript设计前端，并使用flask达到与后端算法的实时通讯。
